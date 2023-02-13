@@ -1,0 +1,8 @@
+Use the struct Point {
+  vector<int> {x1, x2, x3, x4}; vector<double> {y1, y2, y3, y4}; double Pot;
+}; and program a new c++ code that adds a point lattice similar to Z^4, with an Integer halfspace included into std::vector<Point> lattice;
+
+Programm a function that Multiplies a std::vector<std::vector<double>> to p.x like defined in the last code.
+
+Bitte ein neues Programm schreiben: Bitte programmiere die convex hull aus std::vector<Point>& latticeTesseract, prüfe anschließend ob std::vector<double>& y0 drinnen liegt. Bitte ohne CGAL.
+

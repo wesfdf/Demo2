@@ -1,0 +1,42 @@
+std::vector<Point> convexHull(std::vector<Point>& points) {
+    int n = points.size();
+    if (n < 3) return points;
+
+    std::vector<Point> hull; //hull lieber keinen Point
+
+    int l = 0;
+    for (int i = 1; i < n; i++)
+        if (points[i].y[2] < points[l].y[2]) l = i;
+
+    int p = l, q;
+    do {
+        hull.push_back(points[p]);
+        q = (p + 1) % n;
+        for (int i = 0; i < n; i++) {
+            if (orientation(points[p], points[i], points[q]) == 2) q = i;
+        }
+        p = q;
+    } while (p != l);
+
+    //centerHullAroundCenter(hull);
+
+    return hull;
+}
+
+
+
+
+void centerHullAroundCenter(std::vector<Point>& hull) {
+    int n = hull.size();
+    if (n < 1) return;
+
+    double center = 0;
+    for (int i = 0; i < n; i++) {
+        center += hull[i].y[2];
+    }
+    center /= n;
+
+    for (int i = 0; i < n; i++) {
+        hull[i].y[2] -= center;
+    }
+}
